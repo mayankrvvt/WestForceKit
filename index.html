@@ -1,179 +1,1257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
 <title>WestForce Professional Portfolio</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+
 <style>
-:root{--bg:#EEF2F6;--surface:#fff;--ink:#0E1A2B;--mute:#4A5A70;--line:#D3DCE6;--red:#D2362B;--teal:#1F6F78;--dark:#0E1A2B;--darkink:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1320;--surface:#142033;--ink:#EAF0F7;--mute:#9DB0C6;--line:#26364D;--red:#F0574B;--teal:#5BB5BF;--dark:#050B14}}
-:root[data-theme="dark"]{--bg:#0B1320;--surface:#142033;--ink:#EAF0F7;--mute:#9DB0C6;--line:#26364D;--red:#F0574B;--teal:#5BB5BF;--dark:#050B14}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif}
-h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
-a{color:inherit}
-.w{max-width:1120px;margin:0 auto;padding:0 22px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-header .w{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
-.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none}.logo b{color:var(--red)}
-nav{display:flex;gap:22px;font-size:15px;overflow-x:auto}nav a{text-decoration:none;color:var(--mute);white-space:nowrap}nav a:hover{color:var(--ink)}
-.btn{display:inline-block;background:var(--red);color:#fff;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none}
-.btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
-.hero{padding:72px 0 56px}
-.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(40px,6vw,68px);font-weight:800;letter-spacing:-.02em}
-.hero p{color:var(--mute);font-size:19px;max-width:34em;margin:20px 0 28px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 18px 40px -22px rgba(14,26,43,.45)}
-.lock{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:6px}
-.lock span:last-child{background:var(--bg);padding:4px 10px;border-radius:99px;letter-spacing:.2em}
-.row{display:flex;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}
-.ic{flex:none;width:38px;height:38px;border-radius:9px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
-.row small{display:block;color:var(--mute);font-size:14px}
-.tick{overflow:hidden;border-block:1px solid var(--line);background:var(--surface)}
-.tick div{display:flex;gap:44px;width:max-content;padding:16px 0;font:600 16px "Bricolage Grotesque",sans-serif;color:var(--mute);animation:s 32s linear infinite}
-@keyframes s{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.tick div{animation:none}html{scroll-behavior:auto}}
-section{padding:76px 0}
-h2{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.015em;max-width:16em}
-.lead{color:var(--mute);max-width:36em;margin:14px 0 36px}
-.vid{margin-top:8px;aspect-ratio:16/9;background:var(--dark);border-radius:16px;display:grid;place-items:center;color:var(--darkink);text-align:center;padding:24px;position:relative;overflow:hidden}
-.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vid .pl{width:76px;height:76px;border-radius:50%;background:var(--red);margin:0 auto 16px;display:grid;place-items:center;font-size:26px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.svc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
-.svc h3{font-size:20px;margin-bottom:8px}.svc p{margin:0;color:var(--mute);font-size:16px}
-.g4{grid-template-columns:repeat(4,1fr)}
-.pf{border-top:4px solid var(--red);background:var(--surface);padding:20px;border-radius:0 0 12px 12px;border-inline:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pf h3{font-size:19px;margin-bottom:6px}.pf p{margin:0;color:var(--mute);font-size:15.5px}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.steps div{counter-increment:s;padding:24px;border-left:3px solid var(--teal);background:var(--surface);border-radius:0 12px 12px 0}
-.steps div::before{content:counter(s);font:800 40px "Bricolage Grotesque";color:var(--teal);display:block;line-height:1}
-.steps h3{font-size:20px;margin:10px 0 6px}.steps p{margin:0;color:var(--mute)}
-.price{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px}
-.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
-.plan.hot{border:2px solid var(--red)}
-.tag{position:absolute;top:-13px;left:24px;background:var(--red);color:#fff;font-size:13px;font-weight:600;padding:3px 12px;border-radius:99px}
-.amt{font:800 52px "Bricolage Grotesque";margin:8px 0 2px}.amt small{font:500 16px "Instrument Sans";color:var(--mute)}
-.plan ul{padding-left:20px;margin:18px 0 24px;color:var(--mute)}.plan li{margin:6px 0}
-.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.dl div{background:var(--surface);border:1px dashed var(--mute);border-radius:12px;padding:22px}
-.dl h3{font-size:19px;margin-bottom:6px}.dl p{margin:0 0 14px;color:var(--mute);font-size:15.5px}
-.end{background:var(--dark);color:var(--darkink);text-align:center}
-.end h2{margin:0 auto 14px;color:var(--darkink)}.end p{color:#B7C4D6;margin:0 0 26px}
-footer{background:var(--dark);color:#B7C4D6;padding:30px 0;font-size:15px;border-top:1px solid #26364D}
-footer .w{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}footer a{margin-right:18px;text-decoration:none}
-@media(max-width:860px){.hero .w,.grid,.g4,.steps,.price,.dl{grid-template-columns:1fr}.hero{padding-top:40px}section{padding:56px 0}nav{display:none}}
+
+:root{
+  --bg:#EEF2F6;
+  --surface:#fff;
+  --ink:#0E1A2B;
+  --mute:#4A5A70;
+  --line:#D3DCE6;
+  --red:#D2362B;
+  --teal:#1F6F78;
+  --dark:#0E1A2B;
+  --darkink:#fff;
+}
+
+*{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1320;
+    --surface:#142033;
+    --ink:#EAF0F7;
+    --mute:#9DB0C6;
+    --line:#26364D;
+    --red:#F0574B;
+    --teal:#5BB5BF;
+    --dark:#050B14;
+  }
+}
+
+:root[data-theme="dark"]{
+  --bg:#0B1320;
+  --surface:#142033;
+  --ink:#EAF0F7;
+  --mute:#9DB0C6;
+  --line:#26364D;
+  --red:#F0574B;
+  --teal:#5BB5BF;
+  --dark:#050B14;
+}
+
+html{
+  scroll-padding-top:env(safe-area-inset-top,0px);
+  scroll-behavior:smooth;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;
+}
+
+h1,h2,h3{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  line-height:1.1;
+  margin:0;
+}
+
+a{
+  color:inherit;
+}
+
+.w{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 22px;
+}
+
+header{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:5;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+
+header .w{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:60px;
+  gap:16px;
+}
+
+.logo{
+  font:800 20px "Bricolage Grotesque",sans-serif;
+  text-decoration:none;
+}
+
+.logo b{
+  color:var(--red);
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  font-size:15px;
+  overflow-x:auto;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--mute);
+  white-space:nowrap;
+}
+
+nav a:hover{
+  color:var(--ink);
+}
+
+.btn{
+  display:inline-block;
+  background:var(--red);
+  color:#fff;
+  font-weight:600;
+  padding:13px 24px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+.btn.o{
+  background:transparent;
+  color:var(--ink);
+  border:1.5px solid var(--ink);
+}
+
+a:focus-visible,
+.btn:focus-visible{
+  outline:3px solid var(--teal);
+  outline-offset:3px;
+}
+
+.hero{
+  padding:72px 0 56px;
+}
+
+.hero .w{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:48px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(40px,6vw,68px);
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+
+.hero p{
+  color:var(--mute);
+  font-size:19px;
+  max-width:34em;
+  margin:20px 0 28px;
+}
+
+.cta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 18px 40px -22px rgba(14,26,43,.45);
+}
+
+.lock{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  color:var(--mute);
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin-bottom:6px;
+}
+
+.lock span:last-child{
+  background:var(--bg);
+  padding:4px 10px;
+  border-radius:99px;
+  letter-spacing:.2em;
+}
+
+.row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.row:last-child{
+  border:0;
+}
+
+.ic{
+  flex:none;
+  width:38px;
+  height:38px;
+  border-radius:9px;
+  background:var(--teal);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  font-size:13px;
+}
+
+.row small{
+  display:block;
+  color:var(--mute);
+  font-size:14px;
+}
+
+.tick{
+  overflow:hidden;
+  border-block:1px solid var(--line);
+  background:var(--surface);
+}
+
+.tick div{
+  display:flex;
+  gap:44px;
+  width:max-content;
+  padding:16px 0;
+  font:600 16px "Bricolage Grotesque",sans-serif;
+  color:var(--mute);
+  animation:s 32s linear infinite;
+}
+
+@keyframes s{
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tick div{
+    animation:none;
+  }
+
+  html{
+    scroll-behavior:auto;
+  }
+}
+
+section{
+  padding:76px 0;
+}
+
+h2{
+  font-size:clamp(30px,4vw,46px);
+  font-weight:800;
+  letter-spacing:-.015em;
+  max-width:16em;
+}
+
+.lead{
+  color:var(--mute);
+  max-width:36em;
+  margin:14px 0 36px;
+}
+
+.vid{
+  margin-top:8px;
+  aspect-ratio:16/9;
+  background:var(--dark);
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  color:var(--darkink);
+  text-align:center;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+}
+
+.vid video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.vid .pl{
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  background:var(--red);
+  margin:0 auto 16px;
+  display:grid;
+  place-items:center;
+  font-size:26px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.svc{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:22px;
+}
+
+.svc h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.svc p{
+  margin:0;
+  color:var(--mute);
+  font-size:16px;
+}
+
+.g4{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.pf{
+  border-top:4px solid var(--red);
+  background:var(--surface);
+  padding:20px;
+  border-radius:0 0 12px 12px;
+  border-inline:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.pf h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.pf p{
+  margin:0;
+  color:var(--mute);
+  font-size:15.5px;
+}
+
+.steps{
+  counter-reset:s;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.steps div{
+  counter-increment:s;
+  padding:24px;
+  border-left:3px solid var(--teal);
+  background:var(--surface);
+  border-radius:0 12px 12px 0;
+}
+
+.steps div::before{
+  content:counter(s);
+  font:800 40px "Bricolage Grotesque";
+  color:var(--teal);
+  display:block;
+  line-height:1;
+}
+
+.steps h3{
+  font-size:20px;
+  margin:10px 0 6px;
+}
+
+.steps p{
+  margin:0;
+  color:var(--mute);
+}
+
+.price{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  max-width:820px;
+}
+
+.plan{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:28px;
+  position:relative;
+}
+
+.plan.hot{
+  border:2px solid var(--red);
+}
+
+.tag{
+  position:absolute;
+  top:-13px;
+  left:24px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+  padding:3px 12px;
+  border-radius:99px;
+}
+
+.amt{
+  font:800 52px "Bricolage Grotesque";
+  margin:8px 0 2px;
+}
+
+.amt small{
+  font:500 16px "Instrument Sans";
+  color:var(--mute);
+}
+
+.plan ul{
+  padding-left:20px;
+  margin:18px 0 24px;
+  color:var(--mute);
+}
+
+.plan li{
+  margin:6px 0;
+}
+
+
+/* ============================= */
+/* DOWNLOAD SECTION - FIXED      */
+/* ============================= */
+
+.dl{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  align-items:stretch;
+}
+
+.dl > div{
+  background:var(--surface);
+  border:1px dashed var(--mute);
+  border-radius:12px;
+  padding:22px;
+
+  /* Makes all cards equal-height flex containers */
+  display:flex;
+  flex-direction:column;
+}
+
+.dl h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.dl p{
+  margin:0 0 14px;
+  color:var(--mute);
+  font-size:15.5px;
+}
+
+/* Pushes every button to the bottom */
+.dl .btn{
+  margin-top:auto;
+  align-self:flex-start;
+}
+
+
+/* ============================= */
+/* END / FOOTER                  */
+/* ============================= */
+
+.end{
+  background:var(--dark);
+  color:var(--darkink);
+  text-align:center;
+}
+
+.end h2{
+  margin:0 auto 14px;
+  color:var(--darkink);
+}
+
+.end p{
+  color:#B7C4D6;
+  margin:0 0 26px;
+}
+
+footer{
+  background:var(--dark);
+  color:#B7C4D6;
+  padding:30px 0;
+  font-size:15px;
+  border-top:1px solid #26364D;
+}
+
+footer .w{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+footer a{
+  margin-right:18px;
+  text-decoration:none;
+}
+
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:860px){
+
+  .hero .w,
+  .grid,
+  .g4,
+  .steps,
+  .price,
+  .dl{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:40px;
+  }
+
+  section{
+    padding:56px 0;
+  }
+
+  nav{
+    display:none;
+  }
+
+}
+
 </style>
+
 </head>
+
 <body>
-<header><div class="w"><a class="logo" href="#top">West<b>Force</b></a>
-<nav><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#how">How it works</a><a href="#video">Video</a><a href="#pricing">Pricing</a><a href="#downloads">Downloads</a></nav>
-<a class="btn" href="https://west-force-portfolio.vercel.app/" target="_blank" rel="noopener">Create your portfolio</a></div></header>
+
+<header>
+  <div class="w">
+
+    <a class="logo" href="#top">
+      West<b>Force</b>
+    </a>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#how">How it works</a>
+      <a href="#video">Video</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#downloads">Downloads</a>
+    </nav>
+
+    <a
+      class="btn"
+      href="https://west-force-portfolio.vercel.app/"
+      target="_blank"
+      rel="noopener"
+    >
+      Create your portfolio
+    </a>
+
+  </div>
+</header>
+
 
 <main id="top">
-<div class="hero"><div class="w">
-<div>
-<h1>Your career deserves more than a resume.</h1>
-<p>Build a professional portfolio that brings your resume, video, skills, certificates and experience together in one secure link, ready to share with Canadian employers.</p>
-<div class="cta"><a class="btn" href="#how">See how it works</a><a class="btn o" href="https://west-force-portfolio.vercel.app/portfolio/mavenzod" target="_blank" rel="noopener">View sample portfolio</a></div>
-</div>
-<div class="card" aria-label="Example portfolio link">
-<div class="lock"><span>westforce.ca/p/your-name</span><span>••••</span></div>
-<div class="row"><div class="ic">CV</div><div>ATS Resume<small>Canadian-style PDF</small></div></div>
-<div class="row"><div class="ic">▶</div><div>Video Resume<small>2-minute introduction</small></div></div>
-<div class="row"><div class="ic">%</div><div>Skills Report<small>TestGorilla results</small></div></div>
-<div class="row"><div class="ic">✓</div><div>Certificates<small>IELTS, PSW, training</small></div></div>
-</div>
-</div></div>
 
-<div class="tick" aria-label="Industries"><div>
-<span>Construction</span><span>Healthcare</span><span>Logistics</span><span>Hospitality</span><span>Skilled Trades</span><span>Manufacturing</span><span>Transportation</span><span>Professional Services</span>
-<span>Construction</span><span>Healthcare</span><span>Logistics</span><span>Hospitality</span><span>Skilled Trades</span><span>Manufacturing</span><span>Transportation</span><span>Professional Services</span>
-</div></div>
+  <!-- HERO -->
 
-<section id="video"><div class="w">
-<h2>See WestForce in action</h2>
-<p class="lead">Real candidates. Real Canadian employers. Give employers a clear, professional view of your skills, experience and credentials from one shareable profile.</p>
-<div class="vid" id="vidbox"><div><div class="pl">▶</div><strong>Marketing video goes here</strong><br><span style="color:#B7C4D6">Set the video file path in the page's data-src attribute to play it.</span></div></div>
-</div></section>
+  <div class="hero">
+    <div class="w">
 
-<section id="services" style="background:var(--surface)"><div class="w">
-<h2>Everything you need to move your career forward.</h2>
-<p class="lead">From employer matching to credential guidance, WestForce brings your professional journey together in one place.</p>
-<div class="grid">
-<div class="svc"><h3>Employer Matching</h3><p>Connect your professional profile with opportunities that match your experience and career goals.</p></div>
-<div class="svc"><h3>1-on-1 Career Coaching</h3><p>Get personalized guidance to strengthen your applications, interviews and career direction.</p></div>
-<div class="svc"><h3>Video Resume Coaching</h3><p>Learn how to present yourself confidently through a professional video resume.</p></div>
-<div class="svc"><h3>Skills Assessments</h3><p>Show employers what you can actually do with verified skills assessment results.</p></div>
-<div class="svc"><h3>Credential Guidance</h3><p>Understand Canadian credential requirements and how your qualifications transfer.</p></div>
-<div class="svc"><h3>Relocation Support</h3><p>Get practical support as you prepare to relocate and build your career in Canada.</p></div>
-<div class="svc"><h3>Document Verification</h3><p>Keep your professional documents organized and ready for employer review.</p></div>
-<div class="svc"><h3>Post-Placement Care</h3><p>Continue receiving support after placement as you settle into your new role.</p></div>
-<div class="svc"><h3>Private Portfolio Link</h3><p>Share your complete professional profile through one secure, passcode-protected link.</p></div>
-</div></div></section>
+      <div>
 
-<section id="portfolio"><div class="w">
-<h2>Everything employers need, in one place.</h2>
-<p class="lead">Give employers a complete picture of your experience, skills and potential without sending multiple files.</p>
-<div class="grid g4">
-<div class="pf"><h3>ATS Resume</h3><p>Canadian-style PDF resume, ready for applicant tracking systems.</p></div>
-<div class="pf"><h3>Video Resume</h3><p>A 2-minute introduction so employers see your personality.</p></div>
-<div class="pf"><h3>Skills Report</h3><p>Your TestGorilla assessment results, verified and shareable.</p></div>
-<div class="pf"><h3>Certificates</h3><p>IELTS, PSW, training and professional certifications.</p></div>
-</div></div></section>
+        <h1>
+          Your career deserves more than a resume.
+        </h1>
 
-<section id="how" style="background:var(--surface)"><div class="w">
-<h2>From documents to professional portfolio.</h2>
-<p class="lead">Everything is designed to make sharing your professional story simple, secure and effective.</p>
-<div class="steps">
-<div><h3>Sign up and upload</h3><p>Create an account and upload your documents in minutes.</p></div>
-<div><h3>Set a passcode</h3><p>Your portfolio link is protected. Only employers you share the passcode with can view it.</p></div>
-<div><h3>Share with employers</h3><p>Send one link instead of dozens of email attachments.</p></div>
-</div></div></section>
+        <p>
+          Build a professional portfolio that brings your resume, video,
+          skills, certificates and experience together in one secure link,
+          ready to share with Canadian employers.
+        </p>
 
-<section id="pricing"><div class="w">
-<h2>Simple, group-friendly pricing</h2>
-<p class="lead">Bring friends, family or colleagues. The more candidates you sign up together, the lower the per-person price.</p>
-<div class="price">
-<div class="plan"><h3>Solo</h3><p style="margin:4px 0;color:var(--mute)">One professional portfolio</p>
-<div class="amt">$999 <small>CAD per person</small></div>
-<ul><li>ATS-ready Canadian resume</li><li>Video resume coaching</li><li>TestGorilla skills report</li><li>Certificates and credentials hub</li><li>Passcode-protected share link</li><li>1-on-1 WestForce coach</li></ul>
-<a class="btn o" href="#end">Get started</a></div>
-<div class="plan hot"><span class="tag">Most popular</span><h3>Group of 5</h3><p style="margin:4px 0;color:var(--mute)">Best for friends and family</p>
-<div class="amt">$699 <small>CAD per person</small></div>
-<ul><li>Everything in Solo</li><li>5 individual portfolios</li><li>Shared coaching sessions</li><li>Priority employer matching</li><li>Save 300 CAD per person</li></ul>
-<a class="btn" href="#end">Get started</a></div>
-</div>
-<p style="color:var(--mute);margin-top:18px">All prices in CAD. One-time fee, no monthly subscription.</p>
-</div></section>
+        <div class="cta">
 
-<section id="downloads" style="background:var(--surface)"><div class="w">
-<h2>Portfolio resources</h2>
-<p class="lead">Download the WestForce brochure and portfolio materials.</p>
-<div class="dl">
-<div><h3>WestForce Brochure (PDF)</h3><p>Download the WestForce brochure.</p><a class="btn o" href="downloads/WestForce_Brochure.pdf" download>Download PDF</a></div>
-<div><h3>WestForce Career Portfolios (PPTX)</h3><p>Explore the career portfolios presentation.</p><a class="btn o" href="downloads/WestForce_Career_Portfolios.pptx" download>Download PPTX</a></div>
-<div><h3>WestForce Professional Portfolio (PDF)</h3><p>View the WestForce professional portfolio.</p><a class="btn o" href="downloads/WestForce_Professional_Portfolio.pdf" download>Download PDF</a></div>
-</div></div></section>
+          <a class="btn" href="#how">
+            See how it works
+          </a>
 
-<section class="end" id="end"><div class="w">
-<h2>Ready to build your professional profile?</h2>
-<p>Create your portfolio and bring your credentials together.</p>
-<a class="btn" href="https://west-force-portfolio.vercel.app/" target="_blank" rel="noopener">Create your portfolio</a>
-</div></section>
+          <a
+            class="btn o"
+            href="https://west-force-portfolio.vercel.app/portfolio/mavenzod"
+            target="_blank"
+            rel="noopener"
+          >
+            View sample portfolio
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card" aria-label="Example portfolio link">
+
+        <div class="lock">
+          <span>westforce.ca/p/your-name</span>
+          <span>••••</span>
+        </div>
+
+        <div class="row">
+          <div class="ic">CV</div>
+
+          <div>
+            ATS Resume
+            <small>Canadian-style PDF</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ic">▶</div>
+
+          <div>
+            Video Resume
+            <small>2-minute introduction</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ic">%</div>
+
+          <div>
+            Skills Report
+            <small>TestGorilla results</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ic">✓</div>
+
+          <div>
+            Certificates
+            <small>IELTS, PSW, training</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- INDUSTRIES -->
+
+  <div class="tick" aria-label="Industries">
+
+    <div>
+
+      <span>Construction</span>
+      <span>Healthcare</span>
+      <span>Logistics</span>
+      <span>Hospitality</span>
+      <span>Skilled Trades</span>
+      <span>Manufacturing</span>
+      <span>Transportation</span>
+      <span>Professional Services</span>
+
+      <span>Construction</span>
+      <span>Healthcare</span>
+      <span>Logistics</span>
+      <span>Hospitality</span>
+      <span>Skilled Trades</span>
+      <span>Manufacturing</span>
+      <span>Transportation</span>
+      <span>Professional Services</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- VIDEO -->
+
+  <section id="video">
+
+    <div class="w">
+
+      <h2>
+        See WestForce in action
+      </h2>
+
+      <p class="lead">
+        Real candidates. Real Canadian employers. Give employers a clear,
+        professional view of your skills, experience and credentials from
+        one shareable profile.
+      </p>
+
+      <div class="vid" id="vidbox">
+
+        <div>
+
+          <div class="pl">
+            ▶
+          </div>
+
+          <strong>
+            Marketing video goes here
+          </strong>
+
+          <br>
+
+          <span style="color:#B7C4D6">
+            Set the video file path in the page's data-src attribute to play it.
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section
+    id="services"
+    style="background:var(--surface)"
+  >
+
+    <div class="w">
+
+      <h2>
+        Everything you need to move your career forward.
+      </h2>
+
+      <p class="lead">
+        From employer matching to credential guidance, WestForce brings your
+        professional journey together in one place.
+      </p>
+
+      <div class="grid">
+
+        <div class="svc">
+          <h3>Employer Matching</h3>
+          <p>
+            Connect your professional profile with opportunities that match
+            your experience and career goals.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>1-on-1 Career Coaching</h3>
+          <p>
+            Get personalized guidance to strengthen your applications,
+            interviews and career direction.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Video Resume Coaching</h3>
+          <p>
+            Learn how to present yourself confidently through a professional
+            video resume.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Skills Assessments</h3>
+          <p>
+            Show employers what you can actually do with verified skills
+            assessment results.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Credential Guidance</h3>
+          <p>
+            Understand Canadian credential requirements and how your
+            qualifications transfer.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Relocation Support</h3>
+          <p>
+            Get practical support as you prepare to relocate and build your
+            career in Canada.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Document Verification</h3>
+          <p>
+            Keep your professional documents organized and ready for employer
+            review.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Post-Placement Care</h3>
+          <p>
+            Continue receiving support after placement as you settle into
+            your new role.
+          </p>
+        </div>
+
+        <div class="svc">
+          <h3>Private Portfolio Link</h3>
+          <p>
+            Share your complete professional profile through one secure,
+            passcode-protected link.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PORTFOLIO -->
+
+  <section id="portfolio">
+
+    <div class="w">
+
+      <h2>
+        Everything employers need, in one place.
+      </h2>
+
+      <p class="lead">
+        Give employers a complete picture of your experience, skills and
+        potential without sending multiple files.
+      </p>
+
+      <div class="grid g4">
+
+        <div class="pf">
+          <h3>ATS Resume</h3>
+          <p>
+            Canadian-style PDF resume, ready for applicant tracking systems.
+          </p>
+        </div>
+
+        <div class="pf">
+          <h3>Video Resume</h3>
+          <p>
+            A 2-minute introduction so employers see your personality.
+          </p>
+        </div>
+
+        <div class="pf">
+          <h3>Skills Report</h3>
+          <p>
+            Your TestGorilla assessment results, verified and shareable.
+          </p>
+        </div>
+
+        <div class="pf">
+          <h3>Certificates</h3>
+          <p>
+            IELTS, PSW, training and professional certifications.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section
+    id="how"
+    style="background:var(--surface)"
+  >
+
+    <div class="w">
+
+      <h2>
+        From documents to professional portfolio.
+      </h2>
+
+      <p class="lead">
+        Everything is designed to make sharing your professional story
+        simple, secure and effective.
+      </p>
+
+      <div class="steps">
+
+        <div>
+          <h3>Sign up and upload</h3>
+          <p>
+            Create an account and upload your documents in minutes.
+          </p>
+        </div>
+
+        <div>
+          <h3>Set a passcode</h3>
+          <p>
+            Your portfolio link is protected. Only employers you share the
+            passcode with can view it.
+          </p>
+        </div>
+
+        <div>
+          <h3>Share with employers</h3>
+          <p>
+            Send one link instead of dozens of email attachments.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICING -->
+
+  <section id="pricing">
+
+    <div class="w">
+
+      <h2>
+        Simple, group-friendly pricing
+      </h2>
+
+      <p class="lead">
+        Bring friends, family or colleagues. The more candidates you sign up
+        together, the lower the per-person price.
+      </p>
+
+      <div class="price">
+
+        <div class="plan">
+
+          <h3>
+            Solo
+          </h3>
+
+          <p style="margin:4px 0;color:var(--mute)">
+            One professional portfolio
+          </p>
+
+          <div class="amt">
+            $999
+            <small>CAD per person</small>
+          </div>
+
+          <ul>
+            <li>ATS-ready Canadian resume</li>
+            <li>Video resume coaching</li>
+            <li>TestGorilla skills report</li>
+            <li>Certificates and credentials hub</li>
+            <li>Passcode-protected share link</li>
+            <li>1-on-1 WestForce coach</li>
+          </ul>
+
+          <a class="btn o" href="#end">
+            Get started
+          </a>
+
+        </div>
+
+
+        <div class="plan hot">
+
+          <span class="tag">
+            Most popular
+          </span>
+
+          <h3>
+            Group of 5
+          </h3>
+
+          <p style="margin:4px 0;color:var(--mute)">
+            Best for friends and family
+          </p>
+
+          <div class="amt">
+            $699
+            <small>CAD per person</small>
+          </div>
+
+          <ul>
+            <li>Everything in Solo</li>
+            <li>5 individual portfolios</li>
+            <li>Shared coaching sessions</li>
+            <li>Priority employer matching</li>
+            <li>Save 300 CAD per person</li>
+          </ul>
+
+          <a class="btn" href="#end">
+            Get started
+          </a>
+
+        </div>
+
+      </div>
+
+      <p style="color:var(--mute);margin-top:18px">
+        All prices in CAD. One-time fee, no monthly subscription.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- DOWNLOADS -->
+
+  <section
+    id="downloads"
+    style="background:var(--surface)"
+  >
+
+    <div class="w">
+
+      <h2>
+        Portfolio resources
+      </h2>
+
+      <p class="lead">
+        Download the WestForce brochure and portfolio materials.
+      </p>
+
+
+      <div class="dl">
+
+
+        <!-- BROCHURE -->
+
+        <div>
+
+          <h3>
+            WestForce Brochure (PDF)
+          </h3>
+
+          <p>
+            Download the WestForce brochure.
+          </p>
+
+          <a
+            class="btn o"
+            href="downloads/WestForce_Brochure.pdf"
+            download
+          >
+            Download PDF
+          </a>
+
+        </div>
+
+
+        <!-- PPTX -->
+
+        <div>
+
+          <h3>
+            WestForce Career Portfolios (PPTX)
+          </h3>
+
+          <p>
+            Explore the career portfolios presentation.
+          </p>
+
+          <a
+            class="btn o"
+            href="downloads/WestForce_Career_Portfolios.pptx"
+            download
+          >
+            Download PPTX
+          </a>
+
+        </div>
+
+
+        <!-- PROFESSIONAL PORTFOLIO -->
+
+        <div>
+
+          <h3>
+            WestForce Professional Portfolio (PDF)
+          </h3>
+
+          <p>
+            View the WestForce professional portfolio.
+          </p>
+
+          <a
+            class="btn o"
+            href="downloads/WestForce_Professional_Portfolio.pdf"
+            download
+          >
+            Download PDF
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section
+    class="end"
+    id="end"
+  >
+
+    <div class="w">
+
+      <h2>
+        Ready to build your professional profile?
+      </h2>
+
+      <p>
+        Create your portfolio and bring your credentials together.
+      </p>
+
+      <a
+        class="btn"
+        href="https://west-force-portfolio.vercel.app/"
+        target="_blank"
+        rel="noopener"
+      >
+        Create your portfolio
+      </a>
+
+    </div>
+
+  </section>
+
 </main>
 
-<footer><div class="w"><div><strong style="color:#fff">WestForce Portfolio</strong><br>One professional link. Every credential. Every employer.</div>
-<div><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#how">How it works</a><a href="#pricing">Pricing</a></div>
-<div>© 2026 WestForce Professional Portfolio</div></div></footer>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="w">
+
+    <div>
+
+      <strong style="color:#fff">
+        WestForce Portfolio
+      </strong>
+
+      <br>
+
+      One professional link. Every credential. Every employer.
+
+    </div>
+
+
+    <div>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#portfolio">
+        Portfolio
+      </a>
+
+      <a href="#how">
+        How it works
+      </a>
+
+      <a href="#pricing">
+        Pricing
+      </a>
+
+    </div>
+
+
+    <div>
+      © 2026 WestForce Professional Portfolio
+    </div>
+
+  </div>
+
+</footer>
+
+
 <script>
-// To show the video: set data-src on #vidbox, e.g. document.getElementById('vidbox').dataset.src='data:video/mp4;base64,...'
-(function(){var b=document.getElementById('vidbox'),s=b.dataset.src;if(s){b.innerHTML='<video controls playsinline src="'+s+'"></video>'}})();
+
+// To show the video:
+// set data-src on #vidbox, e.g.
+// document.getElementById('vidbox').dataset.src='data:video/mp4;base64,...'
+
+(function(){
+
+  var b = document.getElementById('vidbox');
+  var s = b.dataset.src;
+
+  if(s){
+
+    b.innerHTML =
+      '<video controls playsinline src="' +
+      s +
+      '"></video>';
+
+  }
+
+})();
+
 </script>
+
+
 </body>
 </html>
