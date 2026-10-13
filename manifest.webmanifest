@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "WestForce Professional Portfolio",
+  "short_name": "WestForce",
+  "description": "Your professional story, together in one secure portfolio.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#EEF2F6",
+  "theme_color": "#0E1A2B",
+  "orientation": "any",
+  "categories": ["business", "education"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

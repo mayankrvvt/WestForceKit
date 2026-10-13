@@ -4,8 +4,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E1A2B">
+<meta name="description" content="Build a professional portfolio that brings your resume, video, skills, certificates and experience together in one secure link.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WestForce">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+<link rel="apple-touch-icon" href="./icons/icon.svg">
 
-<title>WestForce Professional Portfolio</title>
+<title>WestForce | Professional Portfolio</title>
 
 <link rel="stylesheet"
 href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
@@ -26,8 +33,6 @@ href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;
 
 *{
   box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 
 @media (prefers-color-scheme:dark){
@@ -59,10 +64,6 @@ html{
   scroll-behavior:smooth;
 }
 
-*{
-  box-sizing:border-box;
-}
-
 body{
   margin:0;
   background:var(--bg);
@@ -88,10 +89,11 @@ a{
 
 header{
   position:sticky;
-  top:env(safe-area-inset-top,0px);
+  top:0;
   z-index:5;
   background:var(--bg);
   border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);
 }
 
 header .w{
@@ -144,8 +146,23 @@ nav a:hover{
   border:1.5px solid var(--ink);
 }
 
+.install{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  font:600 15px "Instrument Sans",system-ui,sans-serif;
+  cursor:pointer;
+  background:var(--teal);
+}
+
+.install[hidden]{
+  display:none;
+}
+
 a:focus-visible,
-.btn:focus-visible{
+.btn:focus-visible,
+button:focus-visible{
   outline:3px solid var(--teal);
   outline-offset:3px;
 }
@@ -512,6 +529,112 @@ h2{
   margin:0 0 26px;
 }
 
+.end-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.end-actions .btn{
+  font:600 20px "Instrument Sans",system-ui,sans-serif;
+  padding:18px 28px;
+  cursor:pointer;
+}
+
+.contact-dialog{
+  width:min(480px,calc(100% - 32px));
+  max-height:calc(100% - 32px);
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+  color:var(--ink);
+  box-shadow:0 24px 70px rgba(0,0,0,.3);
+}
+
+.contact-dialog::backdrop{
+  background:rgba(5,11,20,.72);
+}
+
+.contact-dialog h2{
+  margin:0 36px 8px 0;
+  font-size:28px;
+}
+
+.contact-dialog p{
+  margin:0 0 20px;
+  color:var(--mute);
+}
+
+.contact-dialog form{
+  display:grid;
+  gap:14px;
+}
+
+.contact-dialog label{
+  display:grid;
+  gap:5px;
+  font-weight:600;
+}
+
+.contact-dialog input{
+  width:100%;
+  min-height:46px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--bg);
+  color:var(--ink);
+  font:inherit;
+}
+
+.contact-dialog .dialog-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
+
+.contact-dialog .dialog-actions button{
+  font:600 16px "Instrument Sans",system-ui,sans-serif;
+  cursor:pointer;
+}
+
+.contact-dialog .dialog-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  min-width:40px;
+  min-height:40px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--ink);
+}
+
+.contact-dialog[open]{
+  position:fixed;
+  inset:50% auto auto 50%;
+  margin:0;
+  transform:translate(-50%,-50%);
+}
+
+.contact-status{
+  min-height:1.5em;
+  margin:0 !important;
+  font-size:14px;
+}
+
+.contact-honeypot{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+
 footer{
   background:var(--dark);
   color:#B7C4D6;
@@ -530,6 +653,28 @@ footer .w{
 footer a{
   margin-right:18px;
   text-decoration:none;
+}
+
+.mobile-nav{
+  display:none;
+}
+
+.offline-note{
+  position:fixed;
+  z-index:10;
+  right:16px;
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  max-width:min(360px,calc(100vw - 32px));
+  padding:10px 14px;
+  border-radius:10px;
+  background:var(--dark);
+  color:var(--darkink);
+  box-shadow:0 8px 24px rgba(0,0,0,.22);
+  font-size:14px;
+}
+
+.offline-note[hidden]{
+  display:none;
 }
 
 
@@ -560,6 +705,57 @@ footer a{
     display:none;
   }
 
+  body{
+    padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));
+  }
+
+  .mobile-nav{
+    position:fixed;
+    inset:auto 0 0;
+    z-index:6;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--line);
+    background:var(--surface);
+    box-shadow:0 -8px 24px rgba(14,26,43,.08);
+  }
+
+  .mobile-nav a{
+    min-height:44px;
+    display:grid;
+    align-content:center;
+    justify-items:center;
+    color:var(--mute);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
+  }
+
+  .mobile-nav a:focus-visible{
+    outline-offset:-2px;
+  }
+
+  .offline-note{
+    bottom:calc(72px + env(safe-area-inset-bottom,0px));
+  }
+
+}
+
+@media(max-width:600px){
+  .header-cta{
+    display:none;
+  }
+
+  header .w{
+    gap:10px;
+  }
+
+  .install{
+    margin-left:auto;
+    padding:9px 14px;
+  }
+
 }
 
 </style>
@@ -584,8 +780,12 @@ footer a{
       <a href="#downloads">Downloads</a>
     </nav>
 
+    <button class="btn install" id="installApp" type="button" hidden>
+      Install app
+    </button>
+
     <a
-      class="btn"
+      class="btn header-cta"
       href="https://west-force-portfolio.vercel.app/"
       target="_blank"
       rel="noopener"
@@ -630,6 +830,10 @@ footer a{
           >
             View sample portfolio
           </a>
+
+          <button class="btn o" id="heroTalkToUs" type="button">
+            Talk to our team
+          </button>
 
         </div>
 
@@ -1163,14 +1367,20 @@ footer a{
         Create your portfolio and bring your credentials together.
       </p>
 
-      <a
-        class="btn"
-        href="https://west-force-portfolio.vercel.app/"
-        target="_blank"
-        rel="noopener"
-      >
-        Create your portfolio
-      </a>
+      <div class="end-actions">
+        <a
+          class="btn"
+          href="https://west-force-portfolio.vercel.app/"
+          target="_blank"
+          rel="noopener"
+        >
+          Create your portfolio
+        </a>
+
+        <button class="btn o" id="talkToUs" type="button">
+          Talk to our team
+        </button>
+      </div>
 
     </div>
 
@@ -1227,6 +1437,51 @@ footer a{
 
 </footer>
 
+<nav class="mobile-nav" aria-label="App navigation">
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#downloads">Resources</a>
+</nav>
+
+<div class="offline-note" id="offlineNote" role="status" aria-live="polite" hidden>
+  You’re offline. WestForce is still available on this device.
+</div>
+
+<dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactTitle">
+  <button class="dialog-close" id="closeContactDialog" type="button" aria-label="Close contact form">×</button>
+  <h2 id="contactTitle">Let’s talk</h2>
+  <p>Leave your details and our team will get in touch.</p>
+
+  <form id="contactForm">
+    <label>
+      Name
+      <input name="name" type="text" autocomplete="name" maxlength="100" required>
+    </label>
+
+    <label>
+      Email
+      <input name="email" type="email" autocomplete="email" maxlength="254" required>
+    </label>
+
+    <label>
+      Phone number
+      <input name="phone" type="tel" autocomplete="tel" maxlength="32" required>
+    </label>
+
+    <label class="contact-honeypot" aria-hidden="true">
+      Leave this field blank
+      <input name="website" type="text" tabindex="-1" autocomplete="off">
+    </label>
+
+    <div class="dialog-actions">
+      <button class="btn" id="sendContact" type="submit">Request a call</button>
+      <button class="btn o" id="cancelContact" type="button">Cancel</button>
+    </div>
+    <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
 
 <script>
 
@@ -1246,6 +1501,109 @@ footer a{
       s +
       '"></video>';
 
+  }
+
+})();
+
+(function(){
+
+  var installButton = document.getElementById('installApp');
+  var offlineNote = document.getElementById('offlineNote');
+  var installPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', function(event){
+    event.preventDefault();
+    installPrompt = event;
+    installButton.hidden = false;
+  });
+
+  installButton.addEventListener('click', function(){
+    if(!installPrompt){
+      return;
+    }
+
+    installPrompt.prompt()
+      .catch(function(error){
+        console.error('WestForce install prompt could not be opened.', error);
+      });
+    installPrompt = null;
+    installButton.hidden = true;
+  });
+
+  window.addEventListener('appinstalled', function(){
+    installButton.hidden = true;
+  });
+
+  function updateNetworkStatus(){
+    offlineNote.hidden = navigator.onLine;
+  }
+
+  window.addEventListener('online', updateNetworkStatus);
+  window.addEventListener('offline', updateNetworkStatus);
+  updateNetworkStatus();
+
+  var contactDialog = document.getElementById('contactDialog');
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  var sendContact = document.getElementById('sendContact');
+  var contactRequestPending = false;
+
+  document.getElementById('talkToUs').addEventListener('click', function(){
+    contactDialog.showModal();
+  });
+
+  document.getElementById('heroTalkToUs').addEventListener('click', function(){
+    contactDialog.showModal();
+  });
+
+  function closeContactDialog(){
+    contactDialog.close();
+  }
+
+  document.getElementById('closeContactDialog').addEventListener('click', closeContactDialog);
+  document.getElementById('cancelContact').addEventListener('click', closeContactDialog);
+
+  contactForm.addEventListener('submit', async function(event){
+    event.preventDefault();
+    if(contactRequestPending){
+      return;
+    }
+
+    contactRequestPending = true;
+    sendContact.disabled = true;
+    contactStatus.textContent = 'Sending your request…';
+
+    try{
+      var response = await fetch('./api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+      });
+      var result = await response.json();
+
+      if(!response.ok){
+        throw new Error(result.error || 'We couldn’t save your request. Please try again later.');
+      }
+      contactForm.reset();
+      contactStatus.textContent = result.message;
+    }catch(error){
+      contactStatus.textContent = error instanceof TypeError
+        ? 'The contact service is unreachable. Start the Node server with MongoDB configured, then try again.'
+        : error.message || 'We couldn’t reach the server. Please try again later.';
+      console.error('WestForce contact request could not be saved.', error);
+    }finally{
+      contactRequestPending = false;
+      sendContact.disabled = false;
+    }
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('./service-worker.js')
+        .catch(function(error){
+          console.error('WestForce offline support could not be enabled.', error);
+        });
+    });
   }
 
 })();
